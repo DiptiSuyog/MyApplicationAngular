@@ -257,7 +257,7 @@
             <!-- <tr *ngFor="let employee of employees; index as i; trackBy: refreshList; even as even"> -->
             @for (employee of employees; track $index;) {
               <tr>  
-                <td>{{$index+1}}</td>
+                <td>{{$index}}</td>
                 <td>{{employee.Name}}</td>
                 <td>{{employee.Age}}</td>
                 <td>{{employee.Salary}}</td>
