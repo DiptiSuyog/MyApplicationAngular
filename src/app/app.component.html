@@ -225,10 +225,69 @@
           <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
         </defs>
       </svg>
-      <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+      <h1>Hello Deepti Ranjan, <span [style.color]="'red'">aaa</span></h1>
+      <p>{{ name }} Congratulations! Your app is running. 🎉</p>
+      <button (click)="myMethod()">Click</button>
+
+      <div [ngSwitch]= "value">
+        
+        <div *ngSwitchCase = "'1'">
+          <p>Value is 1</p>
+        </div>
+        <div *ngSwitchCase = "'2'">
+          <p>Value is 2</p>
+        </div>
+        <div *ngSwitchDefault>
+          <p>Click above button to get value</p>
+        </div>
+      </div>
+      
+      <div>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Serial No.</th>
+              <th>Employee Name</th>
+              <th>Age</th>
+              <th>Salary</th>
+              <th>Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- <tr *ngFor="let employee of employees; index as i; trackBy: refreshList; even as even"> -->
+            @for (employee of employees; track $index;) {
+              <tr>  
+                <td>{{$index+1}}</td>
+                <td>{{employee.Name}}</td>
+                <td>{{employee.Age}}</td>
+                <td>{{employee.Salary}}</td>
+                <td>{{employee.Address}}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+        <h1>Let's Lern the new control flows</h1>
+        @for (employee of employees; track $index) {
+          @if (employee.Name != "Pallavi Mishra") {
+          <ul>
+            <li>{{employee.Name}}</li>
+            <li>{{employee.Age}}</li>
+            <li>{{employee.Salary}}</li>
+            <li>{{employee.Address}}</li>
+          </ul>
+        }
+        @else if (employee.Name == null) {
+          <ul>
+            <li>Not Found</li>
+          </ul>
+        }
+        } @empty {
+          Empty list of fruits
+        }
+      </div>
+      
     </div>
-    <div class="divider" role="separator" aria-label="Divider"></div>
+    <!-- <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
       <div class="pill-group">
         @for (item of [
@@ -320,7 +379,7 @@
           </svg>
         </a>
       </div>
-    </div>
+    </div> -->
   </div>
 </main>
 
